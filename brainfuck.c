@@ -18,8 +18,6 @@ int main()
 	char c;
 	while((c = getc(reader)) != EOF)
 	{
-		if(c == '\n')
-			continue;
 		char str[25];
 		switch(c)
 		{
@@ -30,7 +28,8 @@ int main()
 			case '[': strcpy(str, "\nwhile(*ptr)\n{"); 	break;
 			case ']': strcpy(str, "\n}"); 		break;
 			case ',': strcpy(str, "\nscanf(\"%c\", ptr);"); break;
-			case '.': strcpy(str, "\nprintf(\"%c\", *ptr);"); 
+			case '.': strcpy(str, "\nprintf(\"%c\", *ptr);"); break;
+			default: continue;
 		}
 		fprintf(writer, "%s", str);
 	}
